@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 
 namespace GitChangelogGenerator
 {
@@ -127,6 +128,7 @@ namespace GitChangelogGenerator
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.FileName = "git.exe";
             p.StartInfo.Arguments = command;
+            p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
             p.Start();
             string output = p.StandardOutput.ReadToEnd();
             p.WaitForExit();
